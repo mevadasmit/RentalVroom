@@ -25,10 +25,9 @@ Built using Django, Bootstrap, and W3.CSS, this project offers a user-friendly i
 
 📂 Project Structure
 🔹 Main Django Apps
-Customer Portal (customer_portal) – Handles customer interactions
-Car Dealer (car_dealer) – Manages car listings and rental processes
-Admin (admin_panel) – Provides control over the system
-Templates & Views
+- Customer Portal (customer_portal) ==> Handles customer interactions
+- Car Dealer (car_dealer) ==> Manages car listings and rental processes
+- Admin (admin_panel) ==> Provides control over the system
 
 🛠️ Tech Stack
 
@@ -41,7 +40,7 @@ Database: SQLite (default, can be switched to PostgreSQL or MySQL)
 🔹 Installation Steps
 
 Clone the Repository
-git clone https://github.com/your-username/RentalVroom.git
+git clone https://github.com/mevadasmit/RentalVroom.git
 cd RentalVroom
 
 Create & Activate a Virtual Environment
