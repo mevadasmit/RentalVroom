@@ -1,0 +1,44 @@
+{% extends 'car_dealer/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="background: #f8f9fa;">
+    <div class="card shadow-lg p-3" style="width: 450px; border-radius: 12px;">
+        <div class="text-center">
+            <h2 class="text-primary">Create an Account</h2>
+            <p class="text-muted">Join us and start your journey</p>
+        </div>
+        <form action="/car_dealer_portal/registration/" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" name="firstname" class="form-control" placeholder="Enter First Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="lastname" class="form-control" placeholder="Enter Last Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="username" class="form-control" placeholder="Choose a Username" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="mobile" class="form-control" placeholder="Enter Mobile Number" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="city" class="form-control" placeholder="Enter City" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="pincode" class="form-control" placeholder="Enter Pincode" required>
+            </div>
+            <button type="submit" class="btn btn-outline-primary w-100">Sign Up</button>
+        </form>
+        <div class="text-center mt-4">
+            <p class="text-muted">Already have an account? <a href="/car_dealer_portal/login/" class="text-primary">Sign In</a></p>
+            <a href="/" class="btn btn-outline-success w-100 mt-2">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'car_dealer/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 72vh; background: #f8f9fa;">
+    <div class="card shadow-lg p-4 text-center" style="width: 400px; border-radius: 12px;">
+        <h3 class="text-danger mb-3">Username Already Exists</h3>
+        <p class="text-muted">The username you entered is already taken. Please try using a different username.</p>
+        <a href="/car_dealer_portal/register/" class="btn btn-primary w-100 mt-3">Try Again</a>
+        <a href="/car_dealer_portal/login/" class="btn btn-outline-secondary w-100 mt-2">Go to Login</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+
+<!-- Navbar -->
+<div class="container-fluid bg-dark text-white py-2 px-3 d-flex justify-content-between align-items-center">
+  <span><strong>Customer Portal:</strong> {{ user.username }}</span>
+  <div>
+    <a class="btn btn-outline-light btn-sm mx-1" href="/customer_portal/manage/">Manage</a>
+    <a class="btn btn-danger btn-sm mx-1" href="/customer_portal/logout/">Logout</a>
+  </div>
+</div>
+
+<!-- Search Form Section -->
+<div class="d-flex justify-content-center align-items-center mt-5" style="height:50vh">
+  <div class="card shadow p-4" style="width: 400px;">
+    <h4 class="text-center mb-3">Search for Cars</h4>
+
+    <form action="/customer_portal/search_results/" method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="city" class="form-label"><strong>City:</strong></label>
+        <input type="text" class="form-control" name="city" id="city" placeholder="Enter your city" required>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success w-100">🔍 Search</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

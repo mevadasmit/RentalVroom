@@ -1,0 +1,13 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 72vh; background: #f8f9fa;">
+    <div class="card shadow-lg p-4 text-center" style="width: 400px; border-radius: 12px;">
+        <h3 class="text-success mb-3">Registration Successful!</h3>
+        <p class="text-muted">Your account has been created successfully.</p>
+        <p class="text-muted">You can now log in to your account.</p>
+        <a href="/customer_portal/login/" class="btn btn-primary w-100 mt-3">Go to Login</a>
+        <a href="/" class="btn btn-outline-secondary w-100 mt-2">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
