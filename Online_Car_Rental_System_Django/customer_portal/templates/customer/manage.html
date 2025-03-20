@@ -1,0 +1,66 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+
+<!-- ✅ Updated Navbar -->
+<div class="container-fluid bg-dark text-white py-2 px-3 d-flex justify-content-between align-items-center">
+  <span class="fw-bold">🚗 Welcome, {{ user.username }}!</span>
+  <div>
+    <a class="btn btn-outline-light btn-sm mx-1" href="/customer_portal/search/">Search for Cars</a>
+    <a class="btn btn-danger btn-sm mx-1" href="/customer_portal/logout/">Logout</a>
+  </div>
+</div>
+
+<!-- ✅ Orders Section -->
+<div class="container my-5">
+  <h3 class="text-center text-dark">📋 Your Orders</h3>
+  <hr>
+
+  {% if od %}
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>🚗 Vehicle</th>
+          <th>📅 Days</th>
+          <th>💰 Rent</th>
+          <th>👥 Capacity</th>
+          <th>📝 Description</th>
+          <th>📍 Pincode</th>
+          <th>🗑️ Delete</th>
+          <th>✏️ Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in od %}
+        <tr>
+          <td><strong>{{ order.vehicle.car_name }}</strong></td>
+          <td>{{ order.days }}</td>
+          <td> $ {{ order.rent }}</td>
+          <td>{{ order.vehicle.capacity }} people</td>
+          <td>{{ order.vehicle.description }}</td>
+          <td>{{ order.vehicle.area.pincode }}</td>
+          <td>
+            <form action="/customer_portal/delete/" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="id" value="{{ order.id }}">
+              <button class="btn btn-danger btn-sm">Delete</button>
+            </form>
+          </td>
+          <td>
+            <form action="/customer_portal/update/" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="id" value="{{ order.id }}">
+              <button class="btn btn-success btn-sm">Update</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p class="text-center text-muted">🚫 No orders found. Start by booking a car now!</p>
+  {% endif %}
+</div>
+
+{% endblock %}

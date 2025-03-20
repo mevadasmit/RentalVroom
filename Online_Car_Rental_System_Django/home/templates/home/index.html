@@ -1,0 +1,89 @@
+{% load static %}
+<html>
+<head>
+  <title>RentoVroom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .hero-wrap {
+      background-image: url('{% static "images/bg_1.jpg" %}');
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .overlay {
+      background: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .navbar-custom {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+    .btn-custom {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="font-size:xx-large">Rento<span style="color: #f5a623;">Vroom</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-wrap">
+    <div class="overlay"></div>
+    <div class="container text-center text-white hero-content">
+      <h1 class="mb-4">Drive Your Dreams, Rent with Ease!</h1>
+      <p class="lead">Your journey starts here. Explore, compare, and book your perfect ride today.</p>
+    </div>
+    <!-- Login Options -->
+    <div class="container text-center mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <form action="/customer_portal/login/" method="POST">{% csrf_token %}
+            <button class="btn btn-success btn-lg btn-block btn-custom">Customer Login</button>
+          </form>
+        </div>
+        <div class="col-md-5">
+          <form action="/car_dealer_portal/login/" method="POST">{% csrf_token %}
+            <button class="btn btn-primary btn-lg btn-block btn-custom">Admin Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

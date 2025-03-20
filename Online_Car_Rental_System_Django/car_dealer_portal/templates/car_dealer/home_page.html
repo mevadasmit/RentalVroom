@@ -1,0 +1,69 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Navbar -->
+<div class="container-fluid bg-dark text-white py-2 px-3 d-flex justify-content-between align-items-center">
+  <span>Admin: {{ user.username }}</span>
+  <div>
+    <a class="btn btn-outline-light btn-sm mx-1" href="/car_dealer_portal/manage_vehicles/">Vehicles</a>
+    <a class="btn btn-outline-light btn-sm mx-1" href="/car_dealer_portal/history/">Wallet</a>
+    <a class="btn btn-outline-light btn-sm mx-1" href="/car_dealer_portal/order_list/">Orders</a>
+    <a class="btn bg-danger btn-sm mx-1" href="/car_dealer_portal/logout/">Logout</a>
+  </div>
+</div>
+
+<!-- Title & Breadcrumb -->
+<div class="container">
+  <div class="row">
+      <h2 class="text-dark text-center mt-3">Add New Vehicle</h2>
+  </div>
+</div>
+
+<!-- Form Container -->
+<div class="container mt-4">
+  <div class="row g-0">
+    <!-- Left Section - Image -->
+    <div class="col-lg-6 d-flex align-items-center justify-content-center bg-light">
+      <img src="{% static 'images/2.jpg' %}" class="img-fluid rounded" style="max-width: 90%; max-height:90%">
+    </div>
+    
+    <!-- Right Section - Form -->
+    <div class="col-lg-6 p-4">
+      <div class="card shadow-sm p-4 border-0">
+        <h4 class="text-center text-primary mb-3">Vehicle Details</h4>
+        <form action="/car_dealer_portal/add_vehicle/" method="post">{% csrf_token %}
+          <div class="row mt-3">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Car Name</label>
+              <input type="text" class="form-control" name="car_name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Color</label>
+              <input type="text" class="form-control" name="color" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">City</label>
+              <input type="text" class="form-control" name="city" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Pincode</label>
+              <input type="text" class="form-control" name="pincode" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Capacity</label>
+              <input type="text" class="form-control" name="capacity" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Description</label>
+              <textarea class="form-control" name="description" rows="3" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-primary w-100">Add Vehicle</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

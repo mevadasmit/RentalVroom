@@ -1,0 +1,37 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+
+<div class="container-fluid bg-dark text-white py-2 px-3 d-flex justify-content-between align-items-center">
+  <span><strong>Welcome:</strong> {{ user.username }}</span>
+  <div>
+    <a class="btn btn-outline-light btn-sm mx-1" href="/customer_portal/manage/">Manage</a>
+    <a class="btn btn-outline-light btn-sm mx-1" href="/customer_portal/search/">Search for cars</a>
+    <a class="btn btn-danger btn-sm mx-1" href="/customer_portal/logout/">Logout</a>
+  </div>
+</div>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card shadow-lg p-4 w-50 text-center">
+    <h3 class="text-success"><strong>✅ Order Completed!</strong></h3>
+    <hr>
+    <p>Your vehicle order was successful 🎉</p>
+
+    <div class="card-style my-3">
+      <h5><strong>Total Rent:</strong> $ {{ order.rent }}</h5>
+      <p><strong>Vehicle:</strong> {{ order.vehicle.car_name }}</p>
+      <p><strong>Duration:</strong> {{ order.days }} days</p>
+    </div>
+
+    <!-- Dealer Info -->
+    <div class="card bg-light p-3">
+      <h5><strong>Car Dealer Information</strong></h5>
+      <p class="mt-2"><strong>Name:</strong> {{ order.car_dealer.car_dealer.first_name }} {{ order.car_dealer.car_dealer.last_name }}</p>
+      <p><strong>Contact:</strong> {{ order.car_dealer.mobile }}</p>
+    </div>
+
+    <br>
+    <a href="/customer_portal/search/" class="btn btn-primary w-100">Search for More Cars</a>
+  </div>
+</div>
+
+{% endblock %}
