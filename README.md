@@ -35,6 +35,18 @@ Built using Django, Bootstrap, and W3.CSS, this project offers a user-friendly i
 - Backend: Django (Python-based web framework)
 - Database: SQLite (default, can be switched to PostgreSQL or MySQL)
 
+- For PostgreSQL
+- DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': '<Your Project Name>',
+       'USER': '<Your User Name>',
+       'PASSWORD': '<Your User Password>',
+       'HOST': 'localhost',
+       'PORT': '<Your Port Number>',
+   }
+}
+
 🚀 How to Run the Project
 
 🔹 Installation Steps
